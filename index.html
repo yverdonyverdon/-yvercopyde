@@ -21,6 +21,7 @@
     fetch('https://api.countapi.xyz/hit/resume.enricmor.eu/visits')
         .then(response => response.json())
         .then(data => null);
+
 </script>
 
 <body>
@@ -35,58 +36,24 @@
             <iframe src='about:blank'></iframe>
         </article>
     </main>
-
-    <div class="center-text">
-        <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
-
-        <div id="loader">
-            <div class="lds-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <h2><strong>Loading</strong></h2>
-        </div>
-    </div>
-
-    <script src="js/lib/granim.min.js"></script>
-    <script src="js/lib/smooth-scrollbar.js"></script>
-    <script type="module" src="js/main.js"></script>
-
-    <script>
-        // JavaScript to dynamically create and evenly place popups
-        const popupContents = [
-            "Content for Popup 1",
-            "Content for Popup 2",
-            "Content for Popup 3"
-        ];
-
-        const popupLink = "https://www.google.com"; // Change this to your desired link
-
-        const numPopups = popupContents.length;
-        const radius = 150; // Adjust this to change the radius of the circle
-
-        for (let i = 0; i < numPopups; i++) {
-            const angle = (i / numPopups) * 2 * Math.PI;
-            const x = window.innerWidth / 2 + radius * Math.cos(angle);
-            const y = window.innerHeight / 2 + radius * Math.sin(angle);
-
-            const popup = document.createElement("div");
-            popup.className = "popup";
-            popup.style.left = `${x}px`;
-            popup.style.top = `${y}px`;
-
-            const link = document.createElement("a");
-            link.href = popupLink;
-            link.target = "_blank";
-            link.innerHTML = popupContents[i];
-
-            popup.appendChild(link);
-            document.body.appendChild(popup);
-        }
-    </script>
 </body>
 
-</html>
+<div class="center-text">
+    <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
 
+    <div id="loader">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2><strong>Loading</strong></h2>
+    </div>
+</div>
+
+<script src="js/lib/granim.min.js"></script>
+<script src="js/lib/smooth-scrollbar.js"></script>
+<script type="module" src="js/main.js"></script>
+
+</html>
