@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="description" content="3D resume of Yverdon">
-    <meta name="keywords" content="3D, resume, Yverdon">
-    <meta name="author" content="Yverdon">
-    <meta name="theme-color" content="black">
-    <meta property='og:title' content='Yverdon | 3D resume' />
-    <meta property='og:image' content='preview.png' />
-    <meta property='og:description' content='3D resume of Yverdon' />
-    <meta property='og:url' content='https://yverdon.art' />
-    <link rel="shortcut icon" href="favicon.png">
-    <link href="css/main.css" rel="stylesheet">
-    <title>Yverdon | 3D resume</title>
+    <!-- Add your meta tags, links, and title here -->
+    <!-- ... -->
+
+    <style>
+        /* Add styles for the popups */
+        .popup {
+            display: none;
+            position: fixed;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+    </style>
 </head>
-
-<script>
-    fetch('https://api.countapi.xyz/hit/resume.enricmor.eu/visits')
-        .then(response => response.json())
-        .then(data => null);
-
-</script>
 
 <body>
     <canvas id="gradient"></canvas>
@@ -36,24 +33,61 @@
             <iframe src='about:blank'></iframe>
         </article>
     </main>
-</body>
 
-<div class="center-text">
-    <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
+    <div class="center-text">
+        <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
 
-    <div id="loader">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div id="loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h2><strong>Loading</strong></h2>
         </div>
-        <h2><strong>Loading</strong></h2>
     </div>
-</div>
 
-<script src="js/lib/granim.min.js"></script>
-<script src="js/lib/smooth-scrollbar.js"></script>
-<script type="module" src="js/main.js"></script>
+    <script src="js/lib/granim.min.js"></script>
+    <script src="js/lib/smooth-scrollbar.js"></script>
+    <script type="module">
+        // JavaScript to dynamically create and evenly place popups with links
+        const popupContents = [
+            "Content for Popup 1",
+            "Content for Popup 2",
+            "Content for Popup 3",
+            "Content for Popup 4",
+            "Content for Popup 5",
+            "Content for Popup 6"
+        ];
+
+        const popupLink = "https://www.google.com"; // Change this to your desired link
+
+        const numPopups = popupContents.length;
+        const radius = 150; // Adjust this to change the radius of the circle
+
+        for (let i = 0; i < numPopups; i++) {
+            const angle = (i / numPopups) * 2 * Math.PI;
+            const x = window.innerWidth / 2 + radius * Math.cos(angle);
+            const y = window.innerHeight / 2 + radius * Math.sin(angle);
+
+            const popup = document.createElement("div");
+            popup.className = "popup";
+            popup.style.left = `${x}px`;
+            popup.style.top = `${y}px`;
+
+            const link = document.createElement("a");
+            link.href = popupLink;
+            link.target = "_blank";
+            link.innerHTML = popupContents[i];
+
+            popup.appendChild(link);
+            document.body.appendChild(popup);
+        }
+
+        // Example: Show the first popup
+        document.querySelector(".popup").style.display = "block";
+    </script>
+</body>
 
 </html>
