@@ -15,13 +15,27 @@
     <link rel="shortcut icon" href="favicon.png">
     <link href="css/main.css" rel="stylesheet">
     <title>Yverdon | 3D resume</title>
+
+    <style>
+        /* Styles for the popups */
+        .popup {
+            display: none;
+            position: fixed;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <script>
     fetch('https://api.countapi.xyz/hit/resume.enricmor.eu/visits')
         .then(response => response.json())
         .then(data => null);
-
 </script>
 
 <body>
@@ -36,23 +50,39 @@
             <iframe src='about:blank'></iframe>
         </article>
     </main>
+
+    <div class="center-text">
+        <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
+
+        <!-- Additional popups -->
+        <div class="popup" style="left: 10%; top: 20%;">
+            Popup 1 Content
+            <a href="https://www.example1.com" target="_blank">Visit Example 1</a>
+        </div>
+
+        <div class="popup" style="left: 50%; top: 50%;">
+            Popup 2 Content
+            <a href="https://www.example2.com" target="_blank">Visit Example 2</a>
+        </div>
+
+        <div id="loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h2><strong>Loading</strong></h2>
+        </div>
+    </div>
+
+    <script src="js/lib/granim.min.js"></script>
+    <script src="js/lib/smooth-scrollbar.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
-<div class="center-text">
-    <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
+</html>
 
-    <div id="loader">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <h2><strong>Loading</strong></h2>
-    </div>
-</div>
-
-<script src="js/lib/granim.min.js"></script>
 <script src="js/lib/smooth-scrollbar.js"></script>
 <script type="module" src="js/main.js"></script>
 
