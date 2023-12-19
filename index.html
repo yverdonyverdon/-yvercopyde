@@ -2,29 +2,45 @@
 <html>
 
 <head>
-    <!-- Add your meta tags, links, and title here -->
-    <!-- ... -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="3D resume of Yverdon">
+    <meta name="keywords" content="3D, resume, Yverdon">
+    <meta name="author" content="Yverdon">
+    <meta name="theme-color" content="black">
+    <meta property='og:title' content='Yverdon | 3D resume' />
+    <meta property='og:image' content='preview.png' />
+    <meta property='og:description' content='3D resume of Yverdon' />
+    <meta property='og:url' content='https://yverdon.art' />
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="css/main.css" rel="stylesheet">
     <style>
-        /* Styles for the popups */
-        .popup {
-            display: none;
+        /* Styles for the Google pop-up */
+        .popup-google {
             position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
             background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
+        }
+
+        .popup-google a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
         }
     </style>
+    <title>Yverdon | 3D resume</title>
 </head>
 
 <script>
     fetch('https://api.countapi.xyz/hit/resume.enricmor.eu/visits')
         .then(response => response.json())
         .then(data => null);
+
 </script>
 
 <body>
@@ -39,35 +55,29 @@
             <iframe src='about:blank'></iframe>
         </article>
     </main>
+</body>
 
-    <div class="center-text">
-        <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
+<div class="center-text">
+    <a target="_blank" id="portfolio-link" href="https://www.instagram.com/yverdonyverdon">instagram</a>
 
-        <!-- Additional popups -->
-        <div class="popup" style="left: 10%; top: 20%;">
-            Popup 1 Content
-            <a href="https://www.example1.com" target="_blank">Visit Example 1</a>
-        </div>
-
-        <div class="popup" style="left: 10%; top: 50%;">
-            Popup 2 Content
-            <a href="https://www.example2.com" target="_blank">Visit Example 2</a>
-        </div>
-
-        <div id="loader">
-            <div class="lds-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <h2><strong>Loading</strong></h2>
-        </div>
+    <!-- Google pop-up -->
+    <div class="popup-google">
+        <a target="_blank" href="https://www.google.com">Google</a>
     </div>
 
-    <script src="js/lib/granim.min.js"></script>
-    <script src="js/lib/smooth-scrollbar.js"></script>
-    <script type="module" src="js/main.js"></script>
-</body>
+    <div id="loader">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2><strong>Loading</strong></h2>
+    </div>
+</div>
+
+<script src="js/lib/granim.min.js"></script>
+<script src="js/lib/smooth-scrollbar.js"></script>
+<script type="module" src="js/main.js"></script>
 
 </html>
