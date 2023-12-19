@@ -1,17 +1,29 @@
 import * as THREE from './lib/three.module.js';
+
 import { GLTFLoader } from './lib/GLTFLoader.js';
 import { DRACOLoader } from './lib/DRACOLoader.js';
+
 import { init } from './init.js'
 import { get_scrollbar } from './scrollbar.js'
 import { get_lights } from './lights.js'
 import { update_controls } from './control.js'
 
+
+// import Stats from 'https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.min.js'
+
+// // Stats
+// const stats = new Stats()
+// stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+// document.body.appendChild(stats.dom)
+
 var MODEL_SCALE = 5;
+
 var myscrollbar = get_scrollbar()
+
 var clock = new THREE.Clock();
+
 var model;
 var mixer;
-
 function main() {
     var { scene, renderer, camera } = init(THREE);
     var scene = get_lights(THREE, scene)
@@ -20,8 +32,8 @@ function main() {
     const dracoLoader = new DRACOLoader()
     dracoLoader.setDecoderPath('./js/lib/')
     loader.setDRACOLoader(dracoLoader);
-
     loader.load(
+        // gltf-pipeline -i model.glb -o model.gltf -d
         './gltf/model.gltf',
         function (gltf) {
             model = gltf.scene;
@@ -35,6 +47,7 @@ function main() {
                     node.blending = THREE.NoBlending;
                     const newMaterial = new THREE.MeshPhongMaterial({ color: node.material.color });
                     node.material = newMaterial;
+
                 }
             });
 
@@ -46,13 +59,8 @@ function main() {
             scene.add(model);
         })
 
-    // Display additional popups
-    const popups = document.querySelectorAll('.popup');
-    popups.forEach(popup => {
-        popup.style.display = 'block';
-    });
-
     function render() {
+        // stats.update()
         update_controls(model, myscrollbar);
         var delta = clock.getDelta();
         if (mixer) mixer.update(delta);
@@ -60,6 +68,7 @@ function main() {
         requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
+
 }
 
 main();
